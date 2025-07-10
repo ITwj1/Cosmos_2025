@@ -226,6 +226,17 @@ try:
             else:
                 drive()
 
+                if buttons[LT]:
+                    print("Manual Attack with LT")
+                    kit.servo[channel_servo1].angle = 0
+                    time.sleep(0.1)
+                    kit.servo[channel_servo1].angle = 90
+                if buttons[RT]:
+                    print("Manual Attack with RT")
+                    kit.servo[channel_servo2].angle = 180
+                    time.sleep(0.1)
+                    kit.servo[channel_servo2].angle = 90
+
         elif FSM1State == STATE_ATTACKING:
             attack()  # Perform attack sequence
             FSM1NextState = STATE_IDLE  # Always go to idle after attack
